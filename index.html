@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <title>Kam se investira? | Dobrova - Polhov Gradec</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+
+      background: #f4f6f5;
+
+      overflow: hidden;
+      overscroll-behavior: none;
+    }
+
+    body {
+      position: fixed;
+      inset: 0;
+    }
+
+    #wrapper {
+      position: fixed;
+      inset: 0;
+
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+
+      overflow: hidden;
+    }
+
+    iframe {
+      position: absolute;
+      inset: 0;
+
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      margin: 0;
+      padding: 0;
+      border: 0;
+
+      background: #f4f6f5;
+    }
+
+    #loader {
+      position: fixed;
+      z-index: 9999;
+
+      inset: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #f4f6f5;
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+      color: #176b4d;
+
+      font-size: 16px;
+      font-weight: 600;
+
+      text-align: center;
+    }
+
+    #loader.hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="loader">
+    Nalagam zemljevid investicij ...
+  </div>
+
+  <div id="wrapper"></div>
+
+  <script>
+    const baseUrl =
+      'https://script.google.com/macros/digiteh.eu/s/AKfycbzzrVrw9GFjIuYpq13tPKDEkLSBTUdT0gZ-RgMrbTbNY8nYzr8wezXQAfGE9TNR15coOA/exec';
+
+    const iframe =
+      document.createElement('iframe');
+
+    iframe.src =
+      baseUrl + '?cb=' + Date.now();
+
+    iframe.setAttribute(
+      'allow',
+      'clipboard-write; fullscreen'
+    );
+
+    iframe.setAttribute(
+      'allowfullscreen',
+      ''
+    );
+
+    iframe.onload = function () {
+      document
+        .getElementById('loader')
+        .classList
+        .add('hidden');
+    };
+
+    document
+      .getElementById('wrapper')
+      .appendChild(iframe);
+  </script>
+
+</body>
+</html>
